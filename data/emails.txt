@@ -1,0 +1,34 @@
+---EMAIL---
+From: prof.sharma@university.edu
+Subject: DBMS Assignment 2 Deadline Extended
+Date: 2026-10-05
+Body: Dear students, the deadline for DBMS Assignment 2 has been extended to 2026-10-20. Please ensure your submission includes both the code and the report. Late submissions will not be accepted.
+---END---
+
+---EMAIL---
+From: dept.cs@university.edu
+Subject: Important: Change in Examination Schedule
+Date: 2026-10-04
+Body: Please note that the Automata Theory mid-term examination has been rescheduled. The exam will now take place on 2026-10-28, from 11:00 AM to 1:00 PM in Room 402. Syllabus covers Chapters 1-6. Ensure you bring your student ID and a printed copy of your hall ticket.
+---END---
+
+---EMAIL---
+From: ta.networks@university.edu
+Subject:SE Lab Submission Reminder
+Date: 2026-10-06
+Body: Reminder that SE Lab 4 is due on 2026-10-25. Submit your code and output screenshots on LMS. Estimated effort is about 4 hours.
+---END---
+
+---EMAIL---
+From: studentcouncil@university.edu
+Subject: Annual Campus Cultural Fest - TechnoVista 2026
+Date: 2026-10-05
+Body: Join us for TechnoVista 2026, the annual cultural and tech fest! Events include coding competitions, robotics showcase, dance performances, and food stalls. October 30-31 at the main auditorium. Register at technovista.university.edu.
+---END---
+
+---EMAIL---
+From: prof.abc@university.edu
+Subject: Automata Theory Quiz Postponed
+Date: 2026-10-06
+Body: Automata Theory Quiz 3 originally scheduled for 2026-10-10 has been postponed to 2026-10-17. The quiz will cover Automata Theory. Duration is 30 minutes.
+---END---

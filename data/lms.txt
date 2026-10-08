@@ -1,0 +1,49 @@
+---ANNOUNCEMENT---
+Course: DBMS
+Title: DBMS Assignment 2 Posted
+Date: 2026-10-03
+Deadline: 2026-10-18
+Type: assignment
+Details: Implement B+ tree insertion and deletion. Submit code and a 2-page report explaining your approach. Use C++ or Python.
+Effort: 8 hours
+---END---
+
+---ANNOUNCEMENT---
+Course: SE
+Title: SE Lab 4 
+Date: 2026-10-02
+Deadline: 2026-10-15
+Type: lab
+Details: Lab 4 covers Agile Methodologies and Scrum. There are 3 mini-tasks: setting up a project board, creating a sprint plan, and tracking progress. Submit screenshots of your completed board and plan. 
+Effort: 2 hours
+---END---
+
+---ANNOUNCEMENT---
+Course: ML
+Title: Reading - Intro to ML
+Date: 2026-10-04
+Deadline: 2026-10-24
+Type: reading
+Details: Read Chapter 2 of "Hands-On Machine Learning" by Aurélien Géron. Focus on regression models, regularization (L1/L2), and cross-validation. Prepare for a short quiz next week.
+Effort: 1.5 hours
+---END---
+
+---ANNOUNCEMENT---
+Course: Automata Theory
+Title: Quiz 2 - Pushdown Automata
+Date: 2026-10-05
+Deadline: 2026-10-22
+Type: quiz
+Details: Quiz covers CFLs, Pushdown Automata (PDAs), and conversion between them. Duration 30 minutes. Open during class.
+Effort: 2 hours
+---END---
+
+---ANNOUNCEMENT---
+Course: Cryptographic Engineering   
+Title: Assignment 2 - Attacks & Modes
+Date: 2026-10-06
+Deadline: 2026-10-26
+Type: assignment
+Details: Choose one classic cipher (e.g., Vigenère, Playfair) and one modern block cipher mode (e.g., GCM, CTR). Implement both and analyze their security trade-offs. Provide a summary of attacks applicable to each.
+Effort: 3 hours
+---END---
