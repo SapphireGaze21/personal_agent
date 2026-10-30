@@ -1,0 +1,24 @@
+# Environment and secrets
+.env
+secrets/
+*.token.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# State (runtime data)
+state/traces/*.jsonl
+state/exceptions.json
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Chroma DB
+rag/chroma_db/

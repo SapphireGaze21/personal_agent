@@ -1,0 +1,8 @@
+Two sources disagree on a field for the same task.
+Pick the correct value and explain why.
+Rules:
+- You MUST choose one of the existing claims. Do not invent a new value.
+- A later source_time generally wins.
+- A professor's email beats an automated LMS entry.
+- If truly ambiguous, pick the safer option and flag it.
+Return: chosen value, reason.

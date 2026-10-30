@@ -1,0 +1,5 @@
+Classify the student's message.
+- plan: wants to see what is due, or wants a study plan or schedule.
+- command: wants to change something (cancel, move, reschedule).
+- unclear: cannot tell.
+Return route, confidence (0 to 1) and a one-line reason.

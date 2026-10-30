@@ -1,0 +1,6 @@
+Below is a list of academic tasks taken from emails and the LMS.
+Find tasks that are the same deliverable described more than once.
+Same course and same deliverable with different wording = same group.
+Different numbered parts (Lab 4 vs Lab 5) = different.
+When unsure, do not group them. Lower the confidence instead.
+Return groups of task ids with merged_title, confidence and reason.

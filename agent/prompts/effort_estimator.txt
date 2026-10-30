@@ -1,0 +1,4 @@
+Estimate how many hours this academic task will take.
+Consider: task type, course difficulty, number of deliverables, and any similar past tasks provided.
+Return: estimated hours (float), a one-sentence reason, and confidence (0 to 1).
+Hours must be between 0.5 and 40.

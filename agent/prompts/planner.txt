@@ -1,0 +1,10 @@
+Schedule study blocks for these tasks using ONLY the free slots given.
+Rules:
+- A block must lie fully inside one free slot.
+- Finish each task at least one day before its deadline where possible.
+- Total hours per task must equal its effort.
+- No more than {MAX_STUDY_HOURS_PER_DAY} hours on any day.
+- Spread large tasks over several days. Put heavy work early in the week.
+- Higher grade weight and earlier deadline come first.
+- Give a one-sentence reason for each block.
+If everything cannot fit, schedule the most urgent tasks and list what was left out.
