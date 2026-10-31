@@ -1,73 +1,85 @@
 """
 Shared state schema for the Academic Workflow Agent graph.
 
+Milestone: M0 (Foundation)
+
 Every node reads from and writes to this TypedDict.
 LangGraph manages the state — each node returns a partial dict
 that gets merged into the running state.
 """
 
 from __future__ import annotations
-from typing import TypedDict, Annotated
+import operator
+from datetime import date
+from typing import TypedDict, Annotated, Literal, List, Dict, Optional
+from langchain_core.messages import AnyMessage
+from langgraph.graph.message import add_messages
 
+from .models import (
+    RawEmail,
+    RawLMSItem,
+    RawDoc,
+    CalendarEvent,
+    Task,
+    EmailVerdict,
+    DuplicateGroup,
+    ConflictRecord,
+    Slot,
+    ScheduleBlock,
+    ValidationResult,
+    CommandIntent,
+    TraceEvent,
+)
 
-# ---------------------------------------------------------------------------
-# Domain types
-# ---------------------------------------------------------------------------
-
-class Task(TypedDict, total=False):
-    """A single academic task extracted from any source."""
-    title: str
-    deadline: str          # YYYY-MM-DD
-    source: str            # "email" | "lms" | "calendar" | "email+lms" (merged)
-    task_type: str         # "assignment" | "exam" | "lab" | "reading" | "quiz"
-    effort_hours: float
-    course: str
-    details: str
-
-
-class ScheduleEntry(TypedDict):
-    """A scheduled block of study/work time in the plan."""
-    task_title: str
-    date: str              # YYYY-MM-DD
-    start_time: str        # HH:MM
-    end_time: str          # HH:MM
-    source: str            # traceability — which source this task came from
-
-
-# ---------------------------------------------------------------------------
-# State reducer — messages accumulate across nodes
-# ---------------------------------------------------------------------------
 
 def _merge_lists(left: list, right: list) -> list:
     """Reducer: append new items to existing list."""
+    if left is None:
+        left = []
+    if right is None:
+        right = []
     return left + right
 
 
-# ---------------------------------------------------------------------------
-# Agent state — the single shared TypedDict for the entire graph
-# ---------------------------------------------------------------------------
-
 class AgentState(TypedDict, total=False):
-    """
-    Shared state flowing through the LangGraph.
-
-    Fields without an Annotated reducer use 'last writer wins' semantics.
-    The `messages` field accumulates across all nodes via _merge_lists.
-    """
-    # --- Input ---
+    run_id: str
     user_input: str
 
-    # --- Raw data from sources ---
-    raw_emails: list[dict]
-    raw_lms: list[dict]
+    # ─── Routing ────────────────────────────────────────────────
+    route: Literal["plan", "command", "unclear"]
+    route_confidence: float
+    router_reason: str
 
-    # --- Processed data ---
-    extracted_tasks: list[Task]
+    # ─── Ingest ─────────────────────────────────────────────────
+    raw_emails: List[RawEmail]
+    raw_lms: List[RawLMSItem]
+    raw_docs: List[RawDoc]
+    busy_events: List[CalendarEvent]
+    source_status: Dict[str, str]
 
-    # --- Schedule ---
-    schedule: list[ScheduleEntry]
-    validation_result: dict                             # {valid: bool, issues: [...]}
+    # ─── Orchestrator Workspace ─────────────────────────────────
+    messages: Annotated[List[AnyMessage], add_messages]
+    email_verdicts: Dict[str, EmailVerdict]
+    tasks: List[Task]
+    duplicate_groups: List[DuplicateGroup]
+    conflicts: List[ConflictRecord]
+    tool_calls_made: int
+    last_tool_signature: str
+
+    # ─── Planning ───────────────────────────────────────────────
+    planner_mode: Literal["full", "replan"]
+    affected_dates: List[date]
+    free_slots: List[Slot]
+    schedule: List[ScheduleBlock]
+    validation: ValidationResult
+    retry_count: int
+
+    # ─── Command Flow ───────────────────────────────────────────
+    command_intent: Optional[CommandIntent]
+    resolved_event: Optional[CalendarEvent]
+    confirmed: Optional[bool]
+
+    # ─── Output & Observability ─────────────────────────────────
     plan_output: str
-
-    # --- Meta ---
-    messages: Annotated[list[str], _merge_lists]        # accumulated execution trace
+    warnings: Annotated[List[str], _merge_lists]
+    trace: Annotated[List[TraceEvent], _merge_lists]

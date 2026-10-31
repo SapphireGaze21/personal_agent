@@ -1,0 +1,45 @@
+---EVENT---
+Key: cal1|os_lecture
+Title: OS Class
+Day: Mon
+Start: 10:00
+End: 12:00
+Recurring: True
+---END---
+
+---EVENT---
+Key: cal1|dbms_lecture
+Title: DBMS Class
+Day: Tue
+Start: 09:00
+End: 12:00
+Recurring: True
+---END---
+
+---EVENT---
+Key: cal1|se_lab
+Title: SE Lab
+Day: Wed
+Start: 14:00
+End: 17:00
+Recurring: True
+---END---
+
+---EVENT---
+Key: cal1|cn_lecture
+Title: Computer Networks
+Day: Thu
+Start: 11:00
+End: 13:00
+Recurring: True
+---END---
+
+---EVENT---
+Key: cal1|ml_lecture
+Title: Machine Learning
+Day: Fri
+Start: 10:00
+End: 12:00
+Recurring: True
+---END---
+

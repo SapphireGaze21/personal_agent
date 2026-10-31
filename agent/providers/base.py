@@ -1,16 +1,31 @@
 """
-DataProvider protocol — the interface that FileProvider and McpProvider implement.
+DataProvider protocol — abstract interface for data sources.
 
 Milestone: M0 (Foundation)
 
-Defines:
-    class DataProvider(Protocol):
-        async def get_emails(self, days: int) -> list[RawEmail]
-        async def get_lms_items(self) -> list[RawLMSItem]
-        async def get_documents(self) -> list[RawDoc]
-        async def get_busy_events(self, start: date, end: date) -> list[CalendarEvent]
-
-Why a protocol:
-    The same graph runs on dummy files (development/tests) or real MCP data
-    (production) without changing any node code. Only the provider changes.
+The graph never calls Google or the filesystem directly. It calls a provider.
+This file defines the protocol that both FileProvider and McpProvider implement.
 """
+
+from __future__ import annotations
+from datetime import date
+from typing import Protocol, List
+from ..models import RawEmail, RawLMSItem, RawDoc, CalendarEvent
+
+
+class DataProvider(Protocol):
+    async def get_emails(self, days: int = 14) -> List[RawEmail]:
+        """Fetch emails within the given day horizon."""
+        ...
+
+    async def get_lms_items(self) -> List[RawLMSItem]:
+        """Fetch announcements and task items from LMS."""
+        ...
+
+    async def get_documents(self) -> List[RawDoc]:
+        """Fetch documents from drop folder or storage."""
+        ...
+
+    async def get_busy_events(self, start: date, end: date) -> List[CalendarEvent]:
+        """Fetch busy calendar events between start and end date (inclusive)."""
+        ...

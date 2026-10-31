@@ -28,6 +28,7 @@ def build_graph():
     graph = StateGraph(AgentState)
 
     # ── Register all nodes ─────────────────────────────────────
+
     graph.add_node("ingest", ingest)
     graph.add_node("task_extractor", task_extractor)
     graph.add_node("planner", planner)
@@ -36,7 +37,7 @@ def build_graph():
 
     # ── Wire edges ─────────────────────────────────────────────
     # Entry point
-    graph.add_edge(START, "ingest")
+    graph.add_edge(START, "router")
 
     # Ingest pipeline: ingest → extract → dedup/conflict → plan → validate
     graph.add_edge("ingest", "task_extractor")
